@@ -52,10 +52,10 @@ class ConfiguradorEquipoBasico implements IConfigurable {
         return new CreadorHTML();
     }
     dameValidador(): IValidable {
-        return new ValidadorSueco();
+        return new ValidadorMajose();
     }
     dameMostrador(): IMuestra {
-        return new MuestraHTML();
+        return new MuestraHTML3();
     }
 }
 
