@@ -164,6 +164,11 @@ class MuestraHTML2 implements IMuestra {
         return (`<p> ${MiPersona.primerNombre}  ${MiPersona.apellido2} </p>`);
     }
 }
+class MuestraHTML3 implements IMuestra {
+    dameContenido(MiPersona: Persona): String {
+        return (`<p> ${MiPersona.primerNombre} ${MiPersona.apellido1} ${MiPersona.apellido2} </p>`);
+    }
+}
 class Persona {
     primerNombre: string = "";
     nombreIntermedio: string = "";
@@ -229,5 +234,5 @@ function valida() {
         if (_verde != null) {
             _verde.innerHTML = "";
         }
-    }
+    }   
 }

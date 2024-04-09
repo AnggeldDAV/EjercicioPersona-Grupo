@@ -144,6 +144,15 @@ class ValidadorIngles {
             MiPersona.primerNombre.length > 0);
     }
 }
+class ValidadorSueco {
+    isValid(MiPersona) {
+        return (MiPersona.identificador.length > 0 &&
+            MiPersona.apellido1.length > 0 &&
+            MiPersona.apellido2.length > 0 &&
+            MiPersona.nombreIntermedio.length > 0 &&
+            MiPersona.nombreIntermedio.length > 0);
+    }
+}
 let ConfiguradorGeneral = new ConfiguradorEspañolBasico();
 let GeneradorHTML = ConfiguradorGeneral.dameGenerador();
 let _formulario = document.getElementById("formulario");
