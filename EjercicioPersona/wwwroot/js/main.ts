@@ -46,7 +46,7 @@ class ConfiguradorEspañolBasico implements IConfigurable {
 
 class ConfiguradorEquipoBasico implements IConfigurable {
     dameGenerador(): IGeneraHTML {
-        return new MiPrimerHTML(new HTMLBootStrap());
+        return new MiPrimerHTML(new HTMLGerman());
     }
     dameCreador(): IPersonable {
         return new CreadorHTML();
