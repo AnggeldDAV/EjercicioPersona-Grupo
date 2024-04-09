@@ -178,6 +178,16 @@ class ValidadorIngles implements IValidable {
             MiPersona.primerNombre.length > 0);
     }
 }
+class ValidadorSueco implements IValidable {
+    isValid(MiPersona: Persona): boolean {
+        return (MiPersona.identificador.length > 0 &&
+            MiPersona.apellido1.length > 0 &&
+            MiPersona.apellido2.length > 0 &&
+            MiPersona.nombreIntermedio.length > 0 &&
+            MiPersona.nombreIntermedio.length > 0);
+    }
+}
+
 let ConfiguradorGeneral: IConfigurable = new ConfiguradorEspañolBasico();
 let GeneradorHTML: IGeneraHTML = ConfiguradorGeneral.dameGenerador();
 let _formulario = document.getElementById("formulario");
