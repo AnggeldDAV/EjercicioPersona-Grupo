@@ -28,10 +28,24 @@ class ConfiguradorEspañolBasico {
         return new CreadorHTML();
     }
     dameValidador() {
-        return new ValidadorIngles();
+        return new ValidadorMajose();
     }
     dameMostrador() {
         return new MuestraHTML();
+    }
+}
+class ConfiguradorEquipoBasico {
+    dameGenerador() {
+        return new MiPrimerHTML(new HTMLGerman());
+    }
+    dameCreador() {
+        return new CreadorHTML();
+    }
+    dameValidador() {
+        return new ValidadorMajose();
+    }
+    dameMostrador() {
+        return new MuestraHTML3();
     }
 }
 class CreadorManualEspañol {
@@ -89,6 +103,26 @@ class HTMLChurrutero {
         return `<input type='number' id='${id}' placeholder='${placeholder}' />`;
     }
 }
+class HTMLGerman {
+    dameDiv(id) {
+        return (`<div id='${id}'></div><br/>`);
+    }
+    dameCss() {
+        return `<link href="css/german.css" rel='stylesheet'>`;
+    }
+    dameBoton(id, texto) {
+        return `<input type='button' id=${id} value='${texto}' />`;
+    }
+    dameCheckBox(id, contenido) {
+        return `<input type='checkbox' id='${id}'/><label for='${id}'> ${contenido} </label>`;
+    }
+    dameTextBox(id, placeholder) {
+        return `<input type ='text' id='${id}' placeholder='${placeholder}'/>`;
+    }
+    dameNumberBox(id, placeholder) {
+        return `<input type='number' id='${id}' placeholder='${placeholder}' />`;
+    }
+}
 class HTMLBootStrap {
     dameDiv(id) {
         return (`<div id='${id}' class='form-group col-md-6'></div><br/>`);
@@ -119,6 +153,11 @@ class MuestraHTML2 {
         return (`<p> ${MiPersona.primerNombre}  ${MiPersona.apellido2} </p>`);
     }
 }
+class MuestraHTML3 {
+    dameContenido(MiPersona) {
+        return (`<p> ${MiPersona.primerNombre} ${MiPersona.apellido1} ${MiPersona.apellido2} </p>`);
+    }
+}
 class Persona {
     primerNombre = "";
     nombreIntermedio = "";
@@ -144,16 +183,14 @@ class ValidadorIngles {
             MiPersona.primerNombre.length > 0);
     }
 }
-class ValidadorSueco {
+class ValidadorMajose {
     isValid(MiPersona) {
-        return (MiPersona.identificador.length > 0 &&
+        return (MiPersona.añoNacimiento >= 2000 &&
             MiPersona.apellido1.length > 0 &&
-            MiPersona.apellido2.length > 0 &&
-            MiPersona.nombreIntermedio.length > 0 &&
-            MiPersona.nombreIntermedio.length > 0);
+            MiPersona.primerNombre.length > 0);
     }
 }
-let ConfiguradorGeneral = new ConfiguradorEspañolBasico();
+let ConfiguradorGeneral = new ConfiguradorEquipoBasico();
 let GeneradorHTML = ConfiguradorGeneral.dameGenerador();
 let _formulario = document.getElementById("formulario");
 if (_formulario != null) {

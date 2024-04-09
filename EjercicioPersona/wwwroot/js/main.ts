@@ -135,7 +135,7 @@ class HTMLGerman implements ILibreriaHTML {
         return (`<div id='${id}'></div><br/>`);
     }
     public dameCss(): string {
-        return `<link href='/css/german.css' rel='stylesheet'>`;
+        return `<link href="css/german.css" rel='stylesheet'>`;
     }
     public dameBoton(id: string, texto: string): string {
         return `<input type='button' id=${id} value='${texto}' />`;
