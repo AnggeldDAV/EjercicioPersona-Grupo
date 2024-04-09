@@ -36,7 +36,7 @@ class ConfiguradorEspañolBasico implements IConfigurable {
         return new CreadorHTML();
     }
     dameValidador(): IValidable {
-        return new ValidadorIngles();
+        return new ValidadorMajose();
     }
     dameMostrador(): IMuestra {
         return new MuestraHTML();
@@ -196,6 +196,15 @@ class ValidadorIngles implements IValidable {
         return (MiPersona.identificador.length > 0 &&
             MiPersona.apellido1.length > 0 &&
             MiPersona.nombreIntermedio.length > 0 &&
+            MiPersona.primerNombre.length > 0);
+    }
+}
+
+
+class ValidadorMajose implements IValidable {
+    isValid(MiPersona: Persona): boolean {
+        return (MiPersona.añoNacimiento >= 2000 &&
+            MiPersona.apellido1.length > 0 &&
             MiPersona.primerNombre.length > 0);
     }
 }
