@@ -43,6 +43,22 @@ class ConfiguradorEspañolBasico implements IConfigurable {
     }
 
 }
+
+class ConfiguradorEquipoBasico implements IConfigurable {
+    dameGenerador(): IGeneraHTML {
+        return new MiPrimerHTML(new HTMLBootStrap());
+    }
+    dameCreador(): IPersonable {
+        return new CreadorHTML();
+    }
+    dameValidador(): IValidable {
+        return new ValidadorMajose();
+    }
+    dameMostrador(): IMuestra {
+        return new MuestraHTML3();
+    }
+}
+
 interface IPersonable {
     damePersona(): Persona;
 }
@@ -148,6 +164,11 @@ class MuestraHTML2 implements IMuestra {
         return (`<p> ${MiPersona.primerNombre}  ${MiPersona.apellido2} </p>`);
     }
 }
+class MuestraHTML3 implements IMuestra {
+    dameContenido(MiPersona: Persona): String {
+        return (`<p> ${MiPersona.primerNombre} ${MiPersona.apellido1} ${MiPersona.apellido2} </p>`);
+    }
+}
 class Persona {
     primerNombre: string = "";
     nombreIntermedio: string = "";
@@ -179,6 +200,7 @@ class ValidadorIngles implements IValidable {
     }
 }
 
+
 class ValidadorMajose implements IValidable {
     isValid(MiPersona: Persona): boolean {
         return (MiPersona.añoNacimiento >= 2000 &&
@@ -186,8 +208,7 @@ class ValidadorMajose implements IValidable {
             MiPersona.primerNombre.length > 0);
     }
 }
-
-let ConfiguradorGeneral: IConfigurable = new ConfiguradorEspañolBasico();
+let ConfiguradorGeneral: IConfigurable = new ConfiguradorEquipoBasico();
 let GeneradorHTML: IGeneraHTML = ConfiguradorGeneral.dameGenerador();
 let _formulario = document.getElementById("formulario");
 if (_formulario != null) {
@@ -222,5 +243,5 @@ function valida() {
         if (_verde != null) {
             _verde.innerHTML = "";
         }
-    }
+    }   
 }

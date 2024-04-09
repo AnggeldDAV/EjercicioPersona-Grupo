@@ -25,10 +25,10 @@ class ConfiguradorEspañolBasico {
         return new MiPrimerHTML(new HTMLBootStrap());
     }
     dameCreador() {
-        return new CreadorManualEspañol();
+        return new CreadorHTML();
     }
     dameValidador() {
-        return new ValidadorEspañol();
+        return new ValidadorIngles();
     }
     dameMostrador() {
         return new MuestraHTML();
@@ -142,6 +142,15 @@ class ValidadorIngles {
             MiPersona.apellido1.length > 0 &&
             MiPersona.nombreIntermedio.length > 0 &&
             MiPersona.primerNombre.length > 0);
+    }
+}
+class ValidadorSueco {
+    isValid(MiPersona) {
+        return (MiPersona.identificador.length > 0 &&
+            MiPersona.apellido1.length > 0 &&
+            MiPersona.apellido2.length > 0 &&
+            MiPersona.nombreIntermedio.length > 0 &&
+            MiPersona.nombreIntermedio.length > 0);
     }
 }
 let ConfiguradorGeneral = new ConfiguradorEspañolBasico();
