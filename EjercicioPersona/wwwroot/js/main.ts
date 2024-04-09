@@ -176,6 +176,7 @@ class ValidadorIngles implements IValidable {
             MiPersona.apellido1.length > 0 &&
             MiPersona.nombreIntermedio.length > 0 &&
             MiPersona.primerNombre.length > 0);
+        alert("yiy");
     }
 }
 let ConfiguradorGeneral: IConfigurable = new ConfiguradorEspañolBasico();
