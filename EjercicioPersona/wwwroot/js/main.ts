@@ -43,6 +43,22 @@ class ConfiguradorEspañolBasico implements IConfigurable {
     }
 
 }
+
+class ConfiguradorEquipoBasico implements IConfigurable {
+    dameGenerador(): IGeneraHTML {
+        return new MiPrimerHTML(new HTMLBootStrap());
+    }
+    dameCreador(): IPersonable {
+        return new CreadorHTML();
+    }
+    dameValidador(): IValidable {
+        return new ValidadorSueco();
+    }
+    dameMostrador(): IMuestra {
+        return new MuestraHTML();
+    }
+}
+
 interface IPersonable {
     damePersona(): Persona;
 }
@@ -178,7 +194,7 @@ class ValidadorIngles implements IValidable {
             MiPersona.primerNombre.length > 0);
     }
 }
-let ConfiguradorGeneral: IConfigurable = new ConfiguradorEspañolBasico();
+let ConfiguradorGeneral: IConfigurable = new ConfiguradorEquipoBasico();
 let GeneradorHTML: IGeneraHTML = ConfiguradorGeneral.dameGenerador();
 let _formulario = document.getElementById("formulario");
 if (_formulario != null) {
